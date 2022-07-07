@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class DateUtil {
    private Date userDate;
-   private int delay = 55;
+   private int delay = 30; // if date of user's message older than this value, => user is not present :)
 
     public DateUtil() {
     }

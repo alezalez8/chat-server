@@ -25,11 +25,6 @@ public class JsonMessages {
 
     public JsonMessages(List<Message> sourceList) {
         DateUtil dateUtil = new DateUtil();
-       /* for (Message message : sourceList
-        ) {
-            if (dateUtil.isUserPresent(message.getDate()))
-                list.add(message);
-        }*/
          list =  sourceList.stream().filter(o -> dateUtil.isUserPresent(o.getDate()))
                 .distinct().collect(Collectors.toList());
 

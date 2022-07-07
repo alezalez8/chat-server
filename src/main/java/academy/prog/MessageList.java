@@ -8,12 +8,11 @@ import java.util.List;
 
 public class MessageList {
     private static final MessageList msgList = new MessageList();
-    //private static final ShowList sL = new ShowList();
     private int countOfMessages;
 
 
     private final Gson gson;
-    private final List<Message> list = new LinkedList<>();  // save incoming messages
+    private final List<Message> list = new LinkedList<>();
 
     public static MessageList getInstance() {
         return msgList;
@@ -27,10 +26,10 @@ public class MessageList {
         list.add(m);
     }
 
-    public synchronized String toJSON(int n, String pass) {  // collect messages from n to end and wrap to gson (string line to client)
+    public synchronized String toJSON(int n, String pass) {
         if (n >= list.size()) return null;
         countOfMessages = list.size();
-        return gson.toJson(new JsonMessages(list, n, pass, countOfMessages)); // serialized by json  list of object type of ArrayList<Message>
+        return gson.toJson(new JsonMessages(list, n, pass, countOfMessages));
     }
 
     public synchronized String getPresentUsers() {
