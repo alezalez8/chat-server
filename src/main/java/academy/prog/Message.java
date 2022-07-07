@@ -10,6 +10,7 @@ public class Message {
 	private String from;
 	private String to;
 	private String text;
+	private int currentCount;
 
 	public Message(String from, String text) {
 		this.from = from;
@@ -33,7 +34,15 @@ public class Message {
 				.append("] ").append(text)
                 .toString();
 	}
-	
+
+	public int getCurrentCount() {
+		return currentCount;
+	}
+
+	public void setCurrentCount(int currentCount) {
+		this.currentCount = currentCount;
+	}
+
 	public Date getDate() {
 		return date;
 	}

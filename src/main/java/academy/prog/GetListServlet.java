@@ -1,9 +1,12 @@
 package academy.prog;
 
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
-import jakarta.servlet.http.*;
 
 public class GetListServlet extends HttpServlet {
 	
@@ -12,6 +15,8 @@ public class GetListServlet extends HttpServlet {
     @Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String fromStr = req.getParameter("from");
+		String toLogin = req.getParameter("log");
+
 		int from = 0;
 		try {
 			from = Integer.parseInt(fromStr);
@@ -23,7 +28,7 @@ public class GetListServlet extends HttpServlet {
 
 		resp.setContentType("application/json");
 		
-		String json = msgList.toJSON(from);
+		String json = msgList.toJSON(from, toLogin);
 		if (json != null) {
 			OutputStream os = resp.getOutputStream();
             byte[] buf = json.getBytes(StandardCharsets.UTF_8);
