@@ -1,5 +1,7 @@
-package academy.prog;
+package academy.prog.servlets;
 
+import academy.prog.Message;
+import academy.prog.MessageList;
 import jakarta.servlet.http.*;
 
 import java.io.ByteArrayOutputStream;

@@ -1,5 +1,7 @@
-package academy.prog;
+package academy.prog.servlets;
 
+import academy.prog.MessageList;
+import academy.prog.service.AllPresentUsers;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -11,6 +13,7 @@ import java.nio.charset.StandardCharsets;
 public class GetListServlet extends HttpServlet {
 	
 	private MessageList msgList = MessageList.getInstance();
+	private AllPresentUsers presentUsers = new AllPresentUsers();
 
     @Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -25,6 +28,10 @@ public class GetListServlet extends HttpServlet {
 			resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
 		}
+
+		presentUsers.getRequestFromUsers(toLogin);
+		//presentUsers.printUser();
+		//presentUsers.getPresentUsers();
 
 		resp.setContentType("application/json");
 		

@@ -1,11 +1,11 @@
-package academy.prog;
+package academy.prog.util;
 
 import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtil {
    private Date userDate;
-   private int delay = 30; // if date of user's message older than this value, => user is not present :)
+   private int delay = 20; // if date of user's message older than this value, => user is not present :)
 
     public DateUtil() {
     }
