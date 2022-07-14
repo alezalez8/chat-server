@@ -1,5 +1,6 @@
 package academy.prog;
 
+import academy.prog.service.AllPresentUsers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -8,6 +9,7 @@ import java.util.List;
 
 public class MessageList {
     private static final MessageList msgList = new MessageList();
+    //private AllPresentUsers presentUsers;
     private int countOfMessages;
 
 
@@ -33,7 +35,7 @@ public class MessageList {
     }
 
     public synchronized String getPresentUsers() {
-        return gson.toJson(new JsonMessages(list));
+        return gson.toJson((new AllPresentUsers()).getPresentUsers());
     }
 
 }
